@@ -1,5 +1,5 @@
 // npm modules 
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
@@ -17,19 +17,47 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as memeService from './services/memeService'
+import * as profileService from './services/profileService'
 
 // stylesheets
 import './App.css'
 
 // types
-import { User } from './types/models'
+import { User, Profile, Meme } from './types/models'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
   
   const [user, setUser] = useState<User | null>(authService.getUser())
 
+  const [profiles, setProfiles] = useState<Profile[]>([])
 
+  const [memes, setMemes] = useState<Meme[]>([])
+
+
+
+  useEffect((): void => {
+    const fetchProfiles = async (): Promise<void> => {
+      try {
+        const profileData: Profile[] = await profileService.getAllProfiles()
+        setProfiles(profileData)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    user ? fetchProfiles() : setProfiles([])
+
+
+const fetchMemes = async (): Promise<void> => {
+      try {
+        const memeData: Meme[] = await memeService.index()
+        setMemes(memeData) 
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    if (user) fetchMemes()
+  }, [user])
 
   const handleLogout = (): void => {
     authService.logout()
