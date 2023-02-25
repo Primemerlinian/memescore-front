@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import MemesList from './components/Memes/MemesList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -68,6 +69,15 @@ function App(): JSX.Element {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/memes"
+          element={
+            <ProtectedRoute user={user}>
+              <MemesList memes={memes}/>
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
     </>
   )
