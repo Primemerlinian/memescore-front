@@ -13,6 +13,7 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
     {memes.map((meme)=> 
     <>
     {console.log('memeCard', meme.caption)}
+    <h1>Photo: {meme.photo}</h1>
     <h1>Caption: {meme.caption}</h1>
     </>
     )}
