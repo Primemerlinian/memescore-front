@@ -8,7 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import MemesList from './components/Memes/MemesList'
+import MemesList from './pages/Memes/MemesList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -18,12 +18,12 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as memeService from './services/memeService'
 import * as profileService from './services/profileService'
-
 // stylesheets
 import './App.css'
 
 // types
 import { User, Profile, Meme } from './types/models'
+import NewMemeForm from './pages/NewMeme/NewMeme'
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -69,6 +69,13 @@ const fetchMemes = async (): Promise<void> => {
     setUser(authService.getUser())
   }
 
+  const handleAddMeme = async (data: any): Promise<void> => {
+    const newMeme = await memeService.create(data)
+    setMemes([newMeme, ...memes])
+    navigate('/memes/new')
+  }
+
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -106,7 +113,14 @@ const fetchMemes = async (): Promise<void> => {
             </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/memes/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewMemeForm handleAddMeme={handleAddMeme} />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   )
