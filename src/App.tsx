@@ -27,6 +27,8 @@ function App(): JSX.Element {
   
   const [user, setUser] = useState<User | null>(authService.getUser())
 
+
+
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
