@@ -7,8 +7,6 @@ interface MemeProps {
 
 const MemesList = (props: MemeProps) => {
   const { memes } = props
-  // console.log('memesList props', props)
-  // console.log('memes', memes);
   
 
 
