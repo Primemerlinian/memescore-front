@@ -13,10 +13,10 @@ const MemesList = (props: MemeProps) => {
 
 return (
   <>
-  <section>
-    <h1> THIS IS A TEST MESSAGE </h1>
+  <main>
+    <h1> THIS IS A FEED OF ALL MEMES </h1>
 
-  </section>
+  </main>
   </>
 )
 }
