@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import MemesList from './pages/Memes/MemesList'
 import NewMeme from './pages/NewMeme/NewMeme'
+import EditMeme from './pages/EditMeme/EditMeme'
 
 // components
 import NavBar from './components/NavBar/NavBar'
