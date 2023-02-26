@@ -1,5 +1,6 @@
 import { Meme } from "../../types/models"
 
+
 interface MemeCardProps {
   memes: Meme[];
 }
@@ -10,7 +11,7 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
   return (
     <>
       {memes.map((meme) =>
-        <div key={meme.id}>
+        <div className="memecard" key={meme.id}>
           {meme.photo && (
             <img src={meme.photo} alt="Meme photo" />
             )}

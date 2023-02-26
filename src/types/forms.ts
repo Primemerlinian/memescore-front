@@ -24,8 +24,3 @@ export interface PhotoFormData {
   photo: File | null;
 }
 
-export interface MemeFormData {
-  profileId: number;
-  photo?: string;
-  caption: string;
-}
