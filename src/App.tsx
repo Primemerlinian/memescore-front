@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import MemesList from './pages/Memes/MemesList'
+import NewMeme from './pages/NewMeme/NewMeme'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -22,8 +23,8 @@ import * as profileService from './services/profileService'
 import './App.css'
 
 // types
-import { User, Profile, Meme } from './types/models'
-import NewMemeForm from './pages/NewMeme/NewMeme'
+import { User, Profile, Meme} from './types/models'
+
 
 function App(): JSX.Element {
   const navigate = useNavigate()
@@ -70,9 +71,9 @@ const fetchMemes = async (): Promise<void> => {
   }
 
   const handleAddMeme = async (data: any): Promise<void> => {
-    const newMeme = await memeService.create(data)
+    const newMeme: Meme = await memeService.createMeme(data)
     setMemes([newMeme, ...memes])
-    navigate('/memes/new')
+    navigate('/memes')
   }
 
 
@@ -81,6 +82,10 @@ const fetchMemes = async (): Promise<void> => {
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
+        <Route path="/memes" element={<MemesList memes={memes} />} />
+        <Route path='/memes/new' element={
+          <NewMeme handleAddMeme={handleAddMeme} />
+        } />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -102,22 +107,6 @@ const fetchMemes = async (): Promise<void> => {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/memes"
-          element={
-            <ProtectedRoute user={user}>
-              <MemesList memes={memes}/>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/memes/new"
-          element={
-            <ProtectedRoute user={user}>
-              <NewMemeForm handleAddMeme={handleAddMeme} />
             </ProtectedRoute>
           }
         />

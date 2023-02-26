@@ -1,7 +1,5 @@
 /* ---------==== custom forms ====--------- */
 
-
-
 /* ---------===== auth forms =====--------- */
 
 export interface LoginFormData {
@@ -24,4 +22,9 @@ export interface ChangePasswordFormData {
 
 export interface PhotoFormData {
   photo: File | null;
+}
+
+export interface MemeFormData {
+  photo?: string;
+  caption: string;
 }

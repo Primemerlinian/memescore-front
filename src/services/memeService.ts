@@ -17,36 +17,24 @@ async function index(): Promise<Meme[]> {
   }
 }
 
-// const show = async (id: number): Promise<Meme> => { 
-//   try {
-//     const res = await fetch(`${BASE_URL}/${id}`, {
-//       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
-//     });
-//     return res.json() as Meme
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }
 
-const create = async (memeData: Meme) => {
+async function createMeme(formData: any): Promise<any> {
   try {
-    const res = await fetch(BASE_URL, {
+    const res: Response = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(memeData)
+      body: JSON.stringify(formData)
     })
-    return res.json()
+    return await res.json() as Meme
   } catch (error) {
-    console.log(error)
+    throw error
   }
 }
 
-
 export { 
   index,
-  // show,
-  create,
+  createMeme,
 }

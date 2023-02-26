@@ -11,10 +11,10 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
     <>
       {memes.map((meme) =>
         <div key={meme.id}>
-          <h4>Caption: {meme.caption}</h4>
           {meme.photo && (
             <img src={meme.photo} alt="Meme photo" />
-          )}
+            )}
+            <h4>Caption: {meme.caption}</h4>
         </div>
       )}
     </>

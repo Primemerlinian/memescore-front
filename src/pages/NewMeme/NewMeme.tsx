@@ -1,19 +1,37 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { MemeFormData } from "../../types/forms";
 
-interface Meme {
-  image: string;
+interface NewMemeProps {
+  handleAddMeme: (meme: MemeFormData) => void
+}
+
+interface MemeFormData {
+  photo: string;
   caption: string;
 }
 
-const NewMemeForm: React.FC = () => {
-  const [meme, setMeme] = useState<Meme>({
-    image: "",
-    caption: "",
-  });
+const NewMeme: React.FC<NewMemeProps> = (props) => {
+  const [form, setForm] = useState<MemeFormData>({
+    photo: '',
+    caption: '',
+  })
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setForm(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault()
+    props.handleAddMeme(form)
+    setForm({
+      photo: '',
+      caption: '',
+    })
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -21,20 +39,18 @@ const NewMemeForm: React.FC = () => {
         Image URL:
         <input
           type="text"
-          value={meme.image}
-          onChange={(event) =>
-            setMeme({ ...meme, image: event.target.value })
-          }
+          value={form.photo}
+          onChange={handleChange}
+          name="photo"
         />
       </label>
       <label>
         Caption:
         <input
           type="text"
-          value={meme.caption}
-          onChange={(event) =>
-            setMeme({ ...meme, caption: event.target.value })
-          }
+          value={form.caption}
+          onChange={handleChange}
+          name="caption"
         />
       </label>
       <button type="submit">Create Meme</button>
@@ -42,4 +58,4 @@ const NewMemeForm: React.FC = () => {
   );
 };
 
-export default NewMemeForm;
+export default NewMeme;
