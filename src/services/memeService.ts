@@ -26,7 +26,7 @@ async function createMeme(formData: any): Promise<any> {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData)
+      body: (formData)
     })
     return await res.json() as Meme
   } catch (error) {

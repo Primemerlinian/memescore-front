@@ -23,7 +23,7 @@ import * as profileService from './services/profileService'
 import './App.css'
 
 // types
-import { User, Profile, Meme} from './types/models'
+import { Profile, User, Meme} from './types/models'
 
 
 function App(): JSX.Element {

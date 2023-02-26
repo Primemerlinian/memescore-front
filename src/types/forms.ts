@@ -25,6 +25,7 @@ export interface PhotoFormData {
 }
 
 export interface MemeFormData {
+  profileId: number;
   photo?: string;
   caption: string;
 }
