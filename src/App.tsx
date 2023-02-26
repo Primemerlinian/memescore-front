@@ -94,6 +94,9 @@ const fetchMemes = async (): Promise<void> => {
         <Route path='/memes/new' element={
           <NewMeme handleAddMeme={handleAddMeme} />
         } />
+        <Route path='/memes/:id/update' element={
+          <EditMeme handleUpdateMeme={handleUpdateMeme} />
+        } />
         <Route
           path="/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
