@@ -10,7 +10,6 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import MemesList from './pages/Memes/MemesList'
 import NewMeme from './pages/NewMeme/NewMeme'
-import EditMeme from './pages/EditMeme/EditMeme'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -77,11 +76,6 @@ const fetchMemes = async (): Promise<void> => {
     navigate('/memes')
   }
 
-  const handleUpdateMeme = async (memeData: { _id: string, [key: string]: any }) => {
-    const updatedMeme = await memeService.update(memeData);
-    setMemes(memes.map((m) => memeData._id === m._id ? updatedMeme : m));
-    navigate('/memes');
-  }
   
 
 
@@ -93,9 +87,6 @@ const fetchMemes = async (): Promise<void> => {
         <Route path="/memes" element={<MemesList memes={memes} />} />
         <Route path='/memes/new' element={
           <NewMeme handleAddMeme={handleAddMeme} />
-        } />
-        <Route path='/memes/:id/update' element={
-          <EditMeme handleUpdateMeme={handleUpdateMeme} />
         } />
         <Route
           path="/signup"

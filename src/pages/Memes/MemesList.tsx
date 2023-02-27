@@ -8,8 +8,6 @@ interface MemeProps {
 const MemesList = (props: MemeProps) => {
   const { memes } = props
   
-
-
 return (
   <>
   <section>

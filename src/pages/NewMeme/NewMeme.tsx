@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { MemeFormData } from "../../types/forms";
 
 interface NewMemeProps {
   handleAddMeme: (meme: MemeFormData) => void
