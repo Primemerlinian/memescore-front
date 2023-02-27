@@ -34,7 +34,21 @@ async function createMeme(formData: any): Promise<any> {
   }
 }
 
+const show = async (id: string): Promise<Meme | undefined> => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+    return undefined
+  }
+}
+
+
 export { 
   index,
   createMeme,
+  show,
 }

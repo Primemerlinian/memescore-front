@@ -1,6 +1,5 @@
 import { Meme } from "../../types/models"
 
-
 interface MemeCardProps {
   memes: Meme[];
 }
@@ -15,7 +14,8 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
           {meme.photo && (
             <img src={meme.photo} alt="Meme photo" />
             )}
-            <h4>Caption: {meme.caption}</h4>
+            
+            <h4>{meme.caption}</h4>
         </div>
       )}
     </>
