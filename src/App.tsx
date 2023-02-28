@@ -80,7 +80,8 @@ const fetchMemes = async (): Promise<void> => {
     navigate('/memes')
   }
 
-  const handleUpdateMeme = async (updatedMeme: Meme): Promise<void> => {
+  const handleUpdateMeme = async (updatedMeme: Meme): 
+  Promise<void> => {
     try {
       const response = await memeService.updateMeme(updatedMeme);
       setMemes(memes.map((m: Meme) => (m.id === response.id ? response : m)));

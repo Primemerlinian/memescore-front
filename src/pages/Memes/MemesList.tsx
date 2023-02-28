@@ -16,7 +16,7 @@ return (
   <>
   <section>
   {memes.map((meme: Meme) =>
-        <MemeCard key={meme.id} meme={meme}  user={user} handleDeleteMeme={handleDeleteMeme}/>
+        <MemeCard key={meme.id} meme={meme} user={user} handleDeleteMeme={handleDeleteMeme} profileId={0}/>
       )}
   </section>
 

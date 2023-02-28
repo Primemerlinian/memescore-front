@@ -4,8 +4,6 @@ import { MemeFormData } from "../../types/forms";
 
 interface UpdateMemeFormProps {
   handleUpdateMeme: (formData: MemeFormData) => void
-
-
 }
 
 const EditMeme = (props: UpdateMemeFormProps): JSX.Element => {
