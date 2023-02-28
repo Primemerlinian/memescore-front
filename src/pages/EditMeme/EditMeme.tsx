@@ -1,59 +1,53 @@
 import { useState } from "react"
 import { useLocation } from "react-router";
+import { MemeFormData } from "../../types/forms";
 
-// types
-import { MemeFormData } from "../../types/forms"
-
-interface EditMemeFormProps {
-  handleUpdateMeme: (formData: MemeFormData) => Promise<void>
+interface UpdateMemeFormProps {
+  handleUpdateMeme: (formData: { photo: string; caption: string }) => Promise<void>
 }
 
-const EditMeme = (props: EditMemeFormProps): JSX.Element => {
-  const { state } = useLocation()
-
-  const { handleUpdateMeme } = props
-
+const EditMeme = (props: UpdateMemeProps): JSX.Element => {
+  const location = useLocation();
+  const { meme } = location.state || {};
+  const { handleUpdateMeme } = props;
   const [formData, setFormData] = useState<MemeFormData>({
-    description: state.description,
-    photo: state.photo
-  })
+    photo: meme?.photo ?? '',
+    caption: meme?.caption ?? '',
+  });
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
     evt.preventDefault()
-    handleUpdateMeme(formData)
+    const updatedMeme = { ...meme, ...formData }
+    await handleUpdateMeme(updatedMeme)
   }
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <h3>Update This Meme</h3>
-        <label htmlFor="description-input">Caption:</label>
-        <input
+    <form onSubmit={handleSubmit}>
+      <label>Photo: 
+        <input 
           type="text"
-          id="description-input"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          autoComplete='off'
-        />
-        <label htmlFor="photo-input">Meme URL:</label>
-        <input
-          type="text"
-          id="photo-input"
-          name="photo"
           value={formData.photo}
           onChange={handleChange}
-          autoComplete='off'
+          name="photo"
         />
-        <button type="submit">Update Meme</button>
-      </form>
-    </main>
+      </label>
+      <label>Caption: 
+        <input 
+          type="text"
+          value={formData.caption}
+          onChange={handleChange}
+          name="caption"
+          />
+      </label>
+
+      <button type="submit">Update Meme</button>
+    </form>
   )
 }
 
 export default EditMeme
-

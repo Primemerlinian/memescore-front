@@ -1,6 +1,8 @@
 // npm modules 
 import { useState,useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useLocation } from "react-router";
+
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -10,6 +12,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import MemesList from './pages/Memes/MemesList'
 import NewMeme from './pages/NewMeme/NewMeme'
+import EditMeme from './pages/EditMeme/EditMeme'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -24,6 +27,7 @@ import './App.css'
 
 // types
 import { Profile, User, Meme} from './types/models'
+import { MemeFormData } from './types/forms'
 
 
 function App(): JSX.Element {
@@ -76,6 +80,21 @@ const fetchMemes = async (): Promise<void> => {
     navigate('/memes')
   }
 
+  // const handleUpdateMeme = async (memeData: Meme): Promise<void> => {
+  //   const UpdatedMeme = await memeService.updateMeme(memeData)
+  //   setMemes(memes.map((m) => memeData.id === m.id ? UpdatedMeme : m))
+  //   navigate('/memes')
+  // }
+  const handleUpdateMeme = async (updatedMeme: Meme): Promise<void> => {
+    console.log('Updating meme with id', updatedMeme.id);
+    try {
+      const response = await memeService.updateMeme(updatedMeme);
+      setMemes(memes.map(m => (m.id === response.id ? response : m)));
+      navigate('/memes');
+    } catch (error) {
+      console.error('Failed to update meme:', error);
+    }
+  };
   
 
 
@@ -112,6 +131,9 @@ const fetchMemes = async (): Promise<void> => {
             </ProtectedRoute>
           }
         />
+        <Route path="/memes/:id/edit" 
+        element={<ProtectedRoute user={user}>
+          <EditMeme handleUpdateMeme={handleUpdateMeme} /></ProtectedRoute>} />
       </Routes>
     </>
   )

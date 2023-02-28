@@ -34,31 +34,24 @@ async function createMeme(formData: any): Promise<any> {
   }
 }
 
-const update = async (memeData: Meme): Promise<Meme> => {
+async function updateMeme(memeData: Meme): Promise<Meme> {
   try {
     const res = await fetch(`${BASE_URL}/${memeData.id}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        Authorization: `Bearer ${tokenService.getToken()}`,
-        "Content-Type": "application/json",
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(memeData),
-    });
-
-    if (!res.ok) {
-      throw new Error(`Failed to update meme with ID ${memeData.id}`);
-    }
-
-    const updatedMeme: Meme = await res.json();
-    return updatedMeme;
+      body: JSON.stringify(memeData)
+    })
+    return res.json()
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to update meme");
+    throw error
   }
-};
+}
 
 export { 
   index,
   createMeme,
-  update,
+  updateMeme,
 }
