@@ -50,19 +50,6 @@ async function updateMeme(memeData: Meme): Promise<Meme> {
   }
 }
 
-// async function deleteMeme(id: number): Promise<void> {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${id}`, {
-//       method: 'DELETE',
-//       headers: {
-//         'Authorization': `Bearer ${tokenService.getToken()}`
-//       }
-//     })
-//     return res.json()
-//   } catch (error) {
-//     throw error
-//   }
-// }
 
 const deleteMeme = async (id: number): Promise<Meme | undefined> => {
   try {
