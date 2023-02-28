@@ -10,7 +10,6 @@ interface MemeProps {
 
 const MemesList = (props: MemeProps) => {
   const { memes, user, handleDeleteMeme } = props
-  console.log('memeslistprops', props);
   
   
 return (

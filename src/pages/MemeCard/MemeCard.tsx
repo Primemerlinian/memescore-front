@@ -11,7 +11,6 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
   const { meme, user, handleDeleteMeme } = props
 
   if (!meme) return <p>Loading...</p>
-  // console.log('memecard',meme);
   
   return (
     <>
