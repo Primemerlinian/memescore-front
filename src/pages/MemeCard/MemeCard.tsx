@@ -1,14 +1,17 @@
-import { Meme } from "../../types/models"
+import { Meme, User } from "../../types/models"
 import { Link } from 'react-router-dom';
 
 interface MemeCardProps {
   meme: Meme;
+  user: User | null;
+  handleDeleteMeme: (id: number) => void 
 }
 
 const MemeCard = (props: MemeCardProps): JSX.Element => {
-  const { meme } = props
+  const { meme, user, handleDeleteMeme } = props
+
   if (!meme) return <p>Loading...</p>
-  console.log('memecard',meme);
+  // console.log('memecard',meme);
   
   return (
     <>
@@ -18,6 +21,9 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
             )}
             <h4>Caption: {meme.caption}</h4>
             <Link state={{meme}} to={`/memes/${meme.id}/edit`}>Edit Meme</Link>
+            <button onClick={() => handleDeleteMeme(meme.id)}>Delete</button>
+
+
         </div>
     </>
   );
