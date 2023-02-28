@@ -23,7 +23,10 @@ export interface User {
 
 
 export interface Meme {
-  id?: number;
+  profileId: number | undefined;
+  id: number;
+  profile: { id: number };
+
   photo?: string;
   caption: string;
 }
