@@ -1,6 +1,9 @@
 /* ---------==== custom forms ====--------- */
 
-
+export interface MemeFormData {
+  photo?: string;
+  caption: string;
+}
 /* ---------===== auth forms =====--------- */
 
 export interface LoginFormData {

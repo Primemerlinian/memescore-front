@@ -1,5 +1,5 @@
 import { Meme } from "../../types/models"
-
+import { Link } from 'react-router-dom';
 
 interface MemeCardProps {
   memes: Meme[];
@@ -16,6 +16,7 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
             <img src={meme.photo} alt="Meme photo" />
             )}
             <h4>Caption: {meme.caption}</h4>
+            <Link to={`/memes/${meme.id}/edit`}>Edit Meme</Link>
         </div>
       )}
     </>
