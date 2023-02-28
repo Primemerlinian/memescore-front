@@ -1,23 +1,24 @@
 import { Meme } from "../../types/models"
-
+import { Link } from 'react-router-dom';
 
 interface MemeCardProps {
-  memes: Meme[];
+  meme: Meme;
 }
 
 const MemeCard = (props: MemeCardProps): JSX.Element => {
-  const { memes } = props
-  if (!memes.length) return <p>Loading...</p>
+  const { meme } = props
+  if (!meme) return <p>Loading...</p>
+  console.log('memecard',meme);
+  
   return (
     <>
-      {memes.map((meme) =>
         <div className="memecard" key={meme.id}>
           {meme.photo && (
             <img src={meme.photo} alt="Meme photo" />
             )}
             <h4>Caption: {meme.caption}</h4>
+            <Link state={{meme}} to={`/memes/${meme.id}/edit`}>Edit Meme</Link>
         </div>
-      )}
     </>
   );
 }

@@ -11,8 +11,9 @@ const MemesList = (props: MemeProps) => {
 return (
   <>
   <section>
-    <h1> Your Meme Feed: </h1>
-    <MemeCard memes={memes}/>
+  {memes.map((meme: Meme) =>
+        <MemeCard key={meme.id} meme={meme}/>
+      )}
   </section>
 
   </>

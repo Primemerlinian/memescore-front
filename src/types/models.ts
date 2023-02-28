@@ -23,10 +23,7 @@ export interface User {
 
 
 export interface Meme {
-  id: number;
-  profileId: number;
+  id?: number;
   photo?: string;
   caption: string;
-  createdAt: string;
-  updatedAt: string;
 }
