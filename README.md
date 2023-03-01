@@ -28,3 +28,4 @@
 - Comment system
 - Follow users
 - Rating Memes
+- Delete profile functionality
