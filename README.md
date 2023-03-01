@@ -1,6 +1,6 @@
 # MemeScore
 
-![MemeScore Screenshot]()
+![MemeScore Screenshot](https://i.imgur.com/RaoZTVk.png)
 
 ![MemeScore Screenshot](https://i.imgur.com/o9zcOQS.png)
 
