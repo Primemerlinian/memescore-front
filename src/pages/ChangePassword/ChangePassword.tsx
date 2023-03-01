@@ -19,7 +19,7 @@ const ChangePassword = (props: ChangePasswordProps): JSX.Element => {
 
   return (
     <main className={styles.container}>
-      <h1>Change Password</h1>
+      <h1 className='changepasswordheader'>Change Password</h1>
       <p>{message}</p>
       <ChangePasswordForm {...props} updateMessage={updateMessage} />
     </main>

@@ -215,3 +215,8 @@ input.oldpassword {
 .changepassword {
   color: black;
 }
+
+.changepasswordheader {
+  color: #3afe16;
+  font-size: 50px;
+}
