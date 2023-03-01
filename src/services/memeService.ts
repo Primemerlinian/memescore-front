@@ -3,6 +3,7 @@ import * as tokenService from './tokenService'
 
 // types
 import { Meme } from '../types/models'
+import { MemeFormData } from '../types/forms'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/memes`
 
@@ -34,15 +35,15 @@ async function createMeme(formData: any): Promise<any> {
   }
 }
 
-async function updateMeme(memeData: Meme): Promise<Meme> {
+async function updateMeme(formData: MemeFormData): Promise<Meme> {
   try {
-    const res = await fetch(`${BASE_URL}/${memeData.id}`, {
+    const res = await fetch(`${BASE_URL}/${formData.id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(memeData)
+      body: JSON.stringify(formData)
     })
     return res.json()
   } catch (error) {

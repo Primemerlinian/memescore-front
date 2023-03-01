@@ -6,7 +6,7 @@
 
 📌 MemeScore 
 
-## ➡️ [Check Out MemeScore here](https://memescore.netlify.app
+## ➡️ [Check Out MemeScore here](https://memescore.netlify.app)
 
 
 

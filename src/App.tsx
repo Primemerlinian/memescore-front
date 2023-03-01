@@ -80,10 +80,10 @@ const fetchMemes = async (): Promise<void> => {
     navigate('/memes')
   }
 
-  const handleUpdateMeme = async (updatedMeme: Meme): 
+  const handleUpdateMeme = async (formData: MemeFormData ): 
   Promise<void> => {
     try {
-      const response = await memeService.updateMeme(updatedMeme);
+      const response = await memeService.updateMeme(formData);
       setMemes(memes.map((m: Meme) => (m.id === response.id ? response : m)));
       navigate('/memes');
     } catch (error) {
@@ -137,7 +137,7 @@ const fetchMemes = async (): Promise<void> => {
         />
         <Route path="/memes/:id/edit" 
         element={<ProtectedRoute user={user}>
-          <EditMeme user={user} handleUpdateMeme={handleUpdateMeme} /></ProtectedRoute>} />
+          <EditMeme handleUpdateMeme={handleUpdateMeme} /></ProtectedRoute>} />
           
           <Route path="/memes"
           element={
