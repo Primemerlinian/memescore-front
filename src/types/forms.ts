@@ -1,6 +1,7 @@
 /* ---------==== custom forms ====--------- */
 
 export interface MemeFormData {
+  profileId: number;
   id?: number;
   photo?: string;
   caption: string;

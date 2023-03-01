@@ -11,6 +11,7 @@ const EditMeme = (props: UpdateMemeFormProps): JSX.Element => {
   const meme  = location.state.meme;
   const { handleUpdateMeme } = props;
   const [formData, setFormData] = useState<MemeFormData>({
+    profileId: meme.profileId,
     id: meme.id,
     photo: meme?.photo,
     caption: meme?.caption,
