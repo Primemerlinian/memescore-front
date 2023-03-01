@@ -2,7 +2,7 @@
 
 ![MemeScore Screenshot]()
 
-![MemeScore Screenshot]()
+![MemeScore Screenshot](https://i.imgur.com/o9zcOQS.png)
 
 📌 MemeScore is an app that allows you to upload and view other humorous images and memes.
 
