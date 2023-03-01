@@ -16,15 +16,15 @@ const MemeCard = (props: MemeCardProps): JSX.Element => {
   return (
     <>
       <div className="memecard" key={meme.id}>
-        {meme.photo && <img src={meme.photo} alt="Meme photo" />}
+      {meme.photo && <img className="meme-photo" src={meme.photo} alt="Meme photo" />}
         <div>
-          <h4>Caption: {meme.caption}</h4>
+          <h4>{meme.caption}</h4>
           {meme.profileId === user?.id && (
             <>
-              <Link state={{ meme }} to={`/memes/${meme.id}/edit`}>
+              <Link className="edit" state={{ meme }} to={`/memes/${meme.id}/edit`}>
                 Edit Meme
               </Link>
-              <button onClick={() => handleDeleteMeme(meme.id)}>Delete</button>
+              <button className="delete"onClick={() => handleDeleteMeme(meme.id)}>Delete</button>
             </>
           )}
         </div>

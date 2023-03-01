@@ -44,7 +44,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
       setIsSubmitted(true)
       await authService.signup(formData, photoData)
       handleAuthEvt()
-      navigate('/')
+      navigate('/memes')
     } catch (err) {
       console.log(err)
       handleErrMsg(err, updateMessage)
@@ -128,7 +128,7 @@ const SignupForm = (props: AuthFormProps): JSX.Element => {
         >
           {!isSubmitted ? "Sign Up" : "🚀 Sending..."}
         </button>
-        <Link to="/">
+        <Link to="/memes">
           <button>Cancel</button>
         </Link>
       </div>
