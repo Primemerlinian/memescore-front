@@ -19,7 +19,7 @@ const Signup = (props: SignupProps): JSX.Element => {
 
   return (
     <main className={styles.container}>
-      <h1>Sign Up</h1>
+      <h1 style={{ color: "white" }}>Sign Up</h1>
       <p>{message}</p>
       <SignupForm {...props} updateMessage={updateMessage} />
     </main>
