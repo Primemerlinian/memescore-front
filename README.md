@@ -4,13 +4,11 @@
 
 ![MemeScore Screenshot]()
 
-📌 MemeScore 
+📌 MemeScore is an app that allows you to upload and view other humorous images and memes.
 
-## ➡️ [Check Out MemeScore here](https://memescore.netlify.app)
+## ➡️ [Check Out MemeScore Here](https://memescore.netlify.app)
 
-
-
-
+## [Check Out MemeScore Back End](https://github.com/Primemerlinian/memescore-back)
 
 ## Technologies Used 💻
 
@@ -19,16 +17,13 @@
 
 ## Credits 📫
 
-* Netlify and Fly.io are used for the deployment of this application
-* Markdown badges from GitHub
-* Google Fonts
-* Unsplash used to create the background
+- Netlify and Fly.io are used for the deployment of this application
+- Markdown badges from GitHub
+- Google Fonts
+- Unsplash used to create the background
 
 ## Ice Box 🧊
 
-* Comment system
-* Follow users
-* Rating Memes
-
-
-
+- Comment system
+- Follow users
+- Rating Memes

@@ -1,7 +1,5 @@
 /* ---------===== custom props ====--------- */
 
-
-
 /* ---------===== auth models =====--------- */
 
 export interface Profile {
@@ -20,7 +18,6 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
-
 
 export interface Meme {
   profileId: number;

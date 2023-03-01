@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 interface NewMemeProps {
-  handleAddMeme: (meme: MemeFormData) => void
+  handleAddMeme: (meme: MemeFormData) => void;
 }
 
 interface MemeFormData {
@@ -11,26 +11,28 @@ interface MemeFormData {
 
 const NewMeme: React.FC<NewMemeProps> = (props) => {
   const [form, setForm] = useState<MemeFormData>({
-    photo: '',
-    caption: '',
-  })
+    photo: "",
+    caption: "",
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setForm(prevState => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prevState) => ({
       ...prevState,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-    evt.preventDefault()
-    props.handleAddMeme(form)
+    evt.preventDefault();
+    props.handleAddMeme(form);
     setForm({
-      photo: '',
-      caption: '',
-    })
-  }
+      photo: "",
+      caption: "",
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit}>

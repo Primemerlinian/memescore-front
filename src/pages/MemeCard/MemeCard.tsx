@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 interface MemeCardProps {
   meme: Meme;
   user: User | null;
-  profileId: number
+  profileId: number;
   handleDeleteMeme: (id: number) => void;
 }
 
