@@ -6,7 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+html {
+  background-image: url('https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80');
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -21,14 +23,19 @@ code {
 }
 
 
+
 img.meme-photo {
   display: block;
   margin: 0 auto;
   max-width: 100%;
   height: auto;
+  margin-top: 80px; 
 }
 h4{
   text-align: center;
+  color: #3afe16;
+  font-size: larger;
+  
 }
 
 img {
@@ -100,8 +107,8 @@ img {
 }
 
 nav {
-  background-color: rgba(255, 255, 255, 0.9); /* white opaque background */
-  padding: 20px; /* add some padding for space */
+  background-color: rgba(255, 255, 255, 0.5); /* white semi-opaque background */
+  padding: 10px 20px; /* add some padding for space */
   display: flex; /* use flexbox to align items */
   justify-content: space-between; /* evenly space out the items */
   align-items: center; /* center items vertically */
