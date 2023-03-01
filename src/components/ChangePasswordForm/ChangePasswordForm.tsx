@@ -51,14 +51,14 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
       autoComplete="off"
       onSubmit={handleSubmit}
       className={styles.container}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
     >
-      <div className={styles.inputContainer}>
+      <div className='currentcontainer'>
         <label htmlFor="password" className={styles.label}>
           Current Password
         </label>
-        <input
+        <input className='oldpassword'
           type="password"
-          id="oldPassword"
           value={oldPassword}
           name="oldPassword"
           onChange={handleChange}
@@ -68,7 +68,7 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
         <label htmlFor="newPassword" className={styles.label}>
           New Password
         </label>
-        <input
+        <input className='oldpassword'
           type="password"
           id="newPassword"
           value={newPassword}
@@ -80,7 +80,7 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
         <label htmlFor="newPasswordConf" className={styles.label}>
           Confirm New Password
         </label>
-        <input
+        <input className='oldpassword'
           type="password"
           id="newPasswordConf"
           value={newPasswordConf}
@@ -89,7 +89,7 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+        <button className="changepassword"disabled={isFormInvalid()} >
           Change Password
         </button>
         <Link to="/">
@@ -97,7 +97,7 @@ const ChangePasswordForm = (props: AuthFormProps): JSX.Element => {
         </Link>
       </div>
     </form>
-  )
-}
+  )}
+  
 
 export default ChangePasswordForm
