@@ -25,12 +25,12 @@ const Profiles = (): JSX.Element => {
   if(!profiles.length) return <p>Loading...</p>
 
   return (
-    <>
-      <h1>Hello. This is a list of all the profiles.</h1>
+    <div className="profiles-container">
+      <h1 className='profiles'>Hello. This is a list of all the profiles.</h1>
       {profiles.map((profile: Profile) =>
         <p key={profile.id}>{profile.name}</p>
       )}
-    </>
+    </div>
   )
 }
   

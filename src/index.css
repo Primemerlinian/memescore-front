@@ -144,3 +144,60 @@ nav a:hover {
 nav a.active {
   background-color: #555; 
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  border-radius: 10px;
+  font-size: 50px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+label > span {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: large;
+}
+
+button:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.profiles-container {
+  color: #fff; 
+  padding: 20px;
+  font-size: 40px;
+}
+
+.profiles-container h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.profiles-container p {
+  margin: 10px 0;
+}
